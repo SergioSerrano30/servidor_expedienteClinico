@@ -17,7 +17,7 @@ const UsuarioSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  usuario_rol: [
+  usuario_rol: 
     {
       idRol_PK: {
         type: Number,
@@ -28,8 +28,7 @@ const UsuarioSchema = mongoose.Schema({
         require: true,
       },
     },
-  ],
-  usuario_persona: [
+  usuario_persona:
     {
       idPersona_PK: {
         type: Number,
@@ -55,7 +54,7 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
         require: true,
       },
-      persona_domicilio: [
+      persona_domicilio:
         {
           idDomicilio_PK: {
             type: Number,
@@ -102,8 +101,6 @@ const UsuarioSchema = mongoose.Schema({
             require: true,
           },
         },
-      ],
     },
-  ],
 });
 module.exports = mongoose.model('Usuario', UsuarioSchema);
