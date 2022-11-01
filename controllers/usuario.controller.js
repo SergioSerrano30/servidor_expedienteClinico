@@ -84,3 +84,19 @@ exports.obtenerUsuario = async (req, res) => {
       res.status(500).send("Hubo un error");
     }
   };
+  exports.obtenerPacientes = async(req,res) => {
+    try {
+      
+    //   const usuarios = await Usuario.find(
+    //     {
+    //       // usuario: "sergio"
+    //       'usuario_rol.desRol':"Paciente"
+    //     }
+    //   );
+    // res.json(usuarios);
+    res.json(req.params.id)
+    }catch(error) {
+      console.log(error);
+      res.status(500).send("xxHubo un error");
+    }
+  }
