@@ -1,7 +1,7 @@
 const { response } = require("express");
 const Usuario = require("../models/Usuario");
 
-exports.crearUsuario = async (req, res) => {
+exports.crearPaciente = async (req, res) => {
   try {
     let usuario;
     //Creamos nuestro usuario
@@ -15,15 +15,7 @@ exports.crearUsuario = async (req, res) => {
   }
 };
 
-exports.obtenerUsuarios = async (req, res) => {
-  try {
-    const usuarios = await Usuario.find();
-    res.json(usuarios);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Hubo un error");
-  }
-};
+
 
 exports.actualizarUsuario = async (req,res) => {
     try {
@@ -61,16 +53,29 @@ exports.obtenerUsuario = async (req, res) => {
   exports.obtenerPacientes = async(req,res) => {
     try {
       
-    //   const usuarios = await Usuario.find(
-    //     {
-    //       // usuario: "sergio"
-    //       'usuario_rol.desRol':"Paciente"
-    //     }
-    //   );
-    // res.json(usuarios);
-    res.json(req.params.id)
+      const pacientes = await Usuario.find(
+        {
+          'usuario_rol.desRol':"Paciente"
+        }
+      ).sort({activo:-1});
+    res.json(pacientes)
     }catch(error) {
       console.log(error);
-      res.status(500).send("xxHubo un error");
+      res.status(500).send("Hubo un error");
+    }
+  }
+  exports.obtenerPacientesActivos = async(req,res) => {
+    try {
+      
+      const pacientes = await Usuario.find(
+        {
+          'usuario_rol.desRol':"Paciente",
+           activo: "S"
+        }
+      ).sort({activo:-1});
+    res.json(pacientes)
+    }catch(error) {
+      console.log(error);
+      res.status(500).send("Hubo un error");
     }
   }
