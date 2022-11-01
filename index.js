@@ -14,6 +14,7 @@ app.use('/api/usuarios',require('./routes/usuario'))
 app.use('/api/personas',require('./routes/persona'))
 app.use('/api/domicilios',require('./routes/domicilio'))
 app.use('/api/pacientes',require('./routes/paciente'))
+app.use('/api/terapeutas',require('./routes/terapeuta'))
 // app.get('/', (req,res) => {
 //     res.send('Hola mundo');
 // })
