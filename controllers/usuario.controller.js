@@ -25,18 +25,44 @@ exports.obtenerUsuarios = async (req, res) => {
   }
 };
 
+//Zambrano
 exports.actualizarUsuario = async (req,res) => {
     try {
-        const {usuario, password, activo} = req.body;
+        const {
+          usuario,password,activo
+        } = req.body;
+        
+
+        const {nombre,apPaterno,apMaterno,fechaNac,sexo}=req.body.usuario_persona
+        const{calle,colonia,numero_EXT,numero_INT,entrecalle1,entrecalle2,referencia,pais,estado,municipio}=req.body.usuario_persona.persona_domicilio
+   
         let user = await Usuario.findById(req.params.id);
+        console.log(user)
 
         if(!user){
             res.status(404).json({msg: 'No existe el usuario'});
         }
-
+        
         user.usuario = usuario;
         user.password = password;
         user.activo = activo;
+        user.usuario_persona.apPaterno = apPaterno;
+        user.usuario_persona.apMaterno = apMaterno;
+        user.usuario_persona.fechaNac = fechaNac;
+        user.usuario_persona.sexo = sexo;
+        user.usuario_persona.nombre = nombre;
+        user.usuario_persona.persona_domicilio.calle=calle;
+        user.usuario_persona.persona_domicilio.numero_EXT=numero_EXT;
+        user.usuario_persona.persona_domicilio.numero_INT=numero_INT;
+        user.usuario_persona.persona_domicilio.colonia=colonia;
+        user.usuario_persona.persona_domicilio.entrecalle1=entrecalle1;
+        user.usuario_persona.persona_domicilio.entrecalle2=entrecalle2;
+        user.usuario_persona.persona_domicilio.referencia=referencia;
+        user.usuario_persona.persona_domicilio.pais=pais;
+        user.usuario_persona.persona_domicilio.estado=estado;
+        user.usuario_persona.persona_domicilio.municipio=municipio; 
+
+        
 
         user = await Usuario.findOneAndUpdate({_id: req.params.id}, user, {new:true})
         res.json(user);
