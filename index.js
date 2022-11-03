@@ -1,3 +1,4 @@
+//3
 const express = require('express');
 const conectarDB = require('./config/db')
 const cors = require('cors');
@@ -15,6 +16,7 @@ app.use('/api/personas',require('./routes/persona'))
 app.use('/api/domicilios',require('./routes/domicilio'))
 app.use('/api/pacientes',require('./routes/paciente'))
 app.use('/api/terapeutas',require('./routes/terapeuta'))
+app.use('/api/operaciones',require('./routes/operacion'))
 // app.get('/', (req,res) => {
 //     res.send('Hola mundo');
 // })
