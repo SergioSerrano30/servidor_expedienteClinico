@@ -9,7 +9,9 @@ const usuarioController = require('../controllers/usuario.controller');
 router.post('/', usuarioController.crearUsuario);
 router.get('/', usuarioController.obtenerUsuarios);
 router.put('/:id', usuarioController.actualizarUsuario);
+router.get('/:type/:nombre',usuarioController.obtenerPacientePorNombre);
 router.get('/:id', usuarioController.obtenerUsuario);
+
 
 
 
