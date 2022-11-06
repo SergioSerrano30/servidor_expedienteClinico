@@ -24,11 +24,11 @@ exports.obtenerHistorias = async (req, res) => {
   }
 };
 
-/*
+
 exports.actualizarHistoria = async (req,res) => {
     try {
         const {
-          fechaRegistro,hora,tipoHistoria,usuarios_idUsuarios
+        fechaRegistro,edad,peso,estatura,emeNombre,emeParentesco,emeCelular,alergias,cirugia,traumasFracturas,emeCongenitas,otros,observaciones,numConsultasTotales
         } = req.body;
         
         let his = await Historia.findById(req.params.id);
@@ -39,9 +39,20 @@ exports.actualizarHistoria = async (req,res) => {
         }  
 
         his.fechaRegistro = fechaRegistro;
-        his.hora = hora;
-        his.tipoHistoria = tipoHistoria;
-        his.usuarios_idUsuarios=usuarios_idUsuarios;
+        his.edad = edad;
+        his.peso = peso;
+        his.estatura = estatura;
+        his.emeNombre = emeNombre;
+        his.emeParentesco = emeParentesco;
+        his.emeCelular = emeCelular;
+        his.alergias = alergias;
+        his.cirugia = cirugia;
+        his.traumasFracturas = traumasFracturas;
+        his.emeCongenitas = emeCongenitas;
+        his.otros = otros;
+        his.observaciones = observaciones;
+        his.numConsultasTotales=numConsultasTotales;
+
         
         his = await Historia.findOneAndUpdate({_id: req.params.id}, his, {new:true})
         res.json(his);
@@ -51,7 +62,7 @@ exports.actualizarHistoria = async (req,res) => {
         res.status(500).send("Hubo un error en 'ActualizarHistoria'");
     }
 }
-*/
+
 
 
 exports.obtenerHistoria= async (req, res) => {
