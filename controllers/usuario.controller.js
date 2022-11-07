@@ -6,12 +6,11 @@ exports.crearUsuario = async (req, res) => {
     let usuario;
     //Creamos nuestro usuario
     usuario = new Usuario(req.body);
-
     await usuario.save();
     res.send(usuario);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Hubo un error");
+    res.status(500).send("Hubo un error en 'crear usuario'");
   }
 };
 
@@ -21,11 +20,10 @@ exports.obtenerUsuarios = async (req, res) => {
     res.json(usuarios);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Hubo un error");
+    res.status(500).send("Hubo un error en obtener usuarios");
   }
 };
 
-//Zambrano
 exports.actualizarUsuario = async (req,res) => {
     try {
         const {
@@ -62,16 +60,15 @@ exports.actualizarUsuario = async (req,res) => {
         user.usuario_persona.persona_domicilio.estado=estado;
         user.usuario_persona.persona_domicilio.municipio=municipio; 
 
-        
-
         user = await Usuario.findOneAndUpdate({_id: req.params.id}, user, {new:true})
         res.json(user);
         
     } catch (error) {
         console.log(error);
-        res.status(500).send("Hubo un error");
+        res.status(500).send("Hubo un error en actualizar usuario");
     }
 }
+
 exports.obtenerUsuario = async (req, res) => {
     try {
         let user = await Usuario.findById(req.params.id);
@@ -84,6 +81,7 @@ exports.obtenerUsuario = async (req, res) => {
       res.status(500).send("Hubo un error");
     }
   };
+
   exports.obtenerPacientes = async(req,res) => {
     try {
       
@@ -97,6 +95,6 @@ exports.obtenerUsuario = async (req, res) => {
     res.json(req.params.id)
     }catch(error) {
       console.log(error);
-      res.status(500).send("xxHubo un error");
+      res.status(500).send("xxHubo un error en obtener pacientes");
     }
   }

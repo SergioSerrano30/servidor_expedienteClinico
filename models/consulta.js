@@ -7,7 +7,7 @@ const ConsultaSchema = mongoose.Schema({
       requiere: true,
     },
     idConsulta_PacientePK: {
-      type: Number,
+      type: String,
       requiere: true,
     },
     numConsulta: {
@@ -31,7 +31,7 @@ const ConsultaSchema = mongoose.Schema({
       requiere: true,
     },
     historias_Pacientes_idHistoria_PacientePK: {
-      type: Number,
+      type: String,
       requiere: true,
     },
     usuarios_idUsuario: {

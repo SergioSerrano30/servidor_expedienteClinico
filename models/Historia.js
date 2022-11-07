@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const HistoriaSchema = mongoose.Schema({
     idHistoria_PK: {
-      type: Number,
+      type: String,
       requiere: true,
     },
     fechaRegistro: {
