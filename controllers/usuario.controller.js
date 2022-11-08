@@ -85,7 +85,11 @@ exports.obtenerUsuario = async (req, res) => {
     if (!user) {
       res.status(404).json({ msg: "No existe el usuario" });
     }
-  };
+  }catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
 
 exports.obtenerPacientePorNombre = async (req, res) => {
   try {
@@ -122,4 +126,4 @@ exports.obtenerPacientes = async (req, res) => {
       console.log(error);
       res.status(500).send("xxHubo un error en obtener pacientes");
     }
-  }
+  };
