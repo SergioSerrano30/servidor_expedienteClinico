@@ -6,12 +6,11 @@ exports.crearUsuario = async (req, res) => {
     let usuario;
     //Creamos nuestro usuario
     usuario = new Usuario(req.body);
-
     await usuario.save();
     res.send(usuario);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Hubo un error");
+    res.status(500).send("Hubo un error en 'crear usuario'");
   }
 };
 
@@ -21,11 +20,10 @@ exports.obtenerUsuarios = async (req, res) => {
     res.json(usuarios);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Hubo un error");
+    res.status(500).send("Hubo un error en obtener usuarios");
   }
 };
 
-//Zambrano
 exports.actualizarUsuario = async (req, res) => {
   try {
     const { usuario, password, activo } = req.body;
@@ -80,14 +78,14 @@ exports.actualizarUsuario = async (req, res) => {
     res.status(500).send("Hubo un error");
   }
 };
+
 exports.obtenerUsuario = async (req, res) => {
   try {
     let user = await Usuario.findById(req.params.id);
     if (!user) {
       res.status(404).json({ msg: "No existe el usuario" });
     }
-    res.json(user);
-  } catch (error) {
+  }catch (error) {
     console.log(error);
     res.status(500).send("Hubo un error");
   }
@@ -127,10 +125,9 @@ exports.obtenerPacientes = async (req, res) => {
     //     }
     //   );
     // res.json(usuarios);
-    res.json(req.params.id);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("xxHubo un error");
-  }
-};
-
+    res.json(req.params.id)
+    }catch(error) {
+      console.log(error);
+      res.status(500).send("xxHubo un error en obtener pacientes");
+    }
+  };

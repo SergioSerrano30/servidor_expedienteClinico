@@ -1,4 +1,5 @@
 
+//4 Rutas para usuario
 const express = require('express');
 const router = express.Router();
 

@@ -6,6 +6,7 @@ exports.crearOperacion = async (req, res) => {
   try {
     let operacion;
     operacion = new Operacion(req.body);
+    //console.log(req.body)
     await operacion.save();
     res.send(operacion);
   } catch (error) {
