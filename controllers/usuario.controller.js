@@ -84,7 +84,11 @@ exports.obtenerUsuario = async (req, res) => {
     let user = await Usuario.findById(req.params.id);
     if (!user) {
       res.status(404).json({ msg: "No existe el usuario" });
+      //res.json(user);
+    }else{
+      res.json(user)
     }
+    
   }catch (error) {
     console.log(error);
     res.status(500).send("Hubo un error");
@@ -118,13 +122,13 @@ exports.obtenerUsuarioPorNombre = async (req, res) => {
 
 exports.obtenerPacientes = async (req, res) => {
   try {
-    //   const usuarios = await Usuario.find(
-    //     {
-    //       // usuario: "sergio"
-    //       'usuario_rol.desRol':"Paciente"
-    //     }
-    //   );
-    // res.json(usuarios);
+      const usuarios = await Usuario.find(
+        {
+          // usuario: "sergio"
+          'usuario_rol.desRol':"Paciente"
+        }
+      );
+    res.json(usuarios);
     res.json(req.params.id)
     }catch(error) {
       console.log(error);
