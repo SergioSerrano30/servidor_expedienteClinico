@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const OperacionSchema = mongoose.Schema({
     idOperacion_PK: {
-      type: String,
+      type: Number,
       requiere: true,
     },
     fechaRegistro: {

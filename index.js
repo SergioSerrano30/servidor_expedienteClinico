@@ -1,4 +1,4 @@
-//3
+//4
 const express = require('express');
 const conectarDB = require('./config/db')
 const cors = require('cors');
@@ -17,6 +17,9 @@ app.use('/api/domicilios',require('./routes/domicilio'))
 app.use('/api/pacientes',require('./routes/paciente'))
 app.use('/api/terapeutas',require('./routes/terapeuta'))
 app.use('/api/operaciones',require('./routes/operacion'))
+app.use('/api/historias',require('./routes/historia'))
+app.use('/api/consultas',require('./routes/consulta'))
+
 // app.get('/', (req,res) => {
 //     res.send('Hola mundo');
 // })
