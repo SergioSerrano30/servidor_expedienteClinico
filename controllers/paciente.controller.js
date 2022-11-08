@@ -51,7 +51,7 @@ exports.obtenerUsuario = async (req, res) => {
     }
   };
   exports.obtenerPacientes = async(req,res) => {
-    try {
+    try { 
       
       const pacientes = await Usuario.find(
         {

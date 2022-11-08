@@ -10,7 +10,9 @@ const operacionController = require('../controllers/operacion.controller');
 router.post('/', operacionController.crearOperacion);
 router.get('/', operacionController.obtenerOperaciones);
 router.put('/:id', operacionController.actualizarOperacion);
+router.get('/:type/:nombre',operacionController.obtenerOpePorTipo);
 router.get('/:id', operacionController.obtenerOperacion);
+
 
 
 

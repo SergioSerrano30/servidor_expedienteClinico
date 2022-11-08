@@ -1,3 +1,4 @@
+
 //4 Rutas para usuario
 const express = require('express');
 const router = express.Router();
@@ -9,7 +10,7 @@ const usuarioController = require('../controllers/usuario.controller');
 router.post('/', usuarioController.crearUsuario);
 router.get('/', usuarioController.obtenerUsuarios);
 router.put('/:id', usuarioController.actualizarUsuario);
-router.get('/:type/:nombre',usuarioController.obtenerPacientePorNombre);
+router.get('/:type/:nombre',usuarioController.obtenerUsuarioPorNombre);
 router.get('/:id', usuarioController.obtenerUsuario);
 
 
