@@ -93,26 +93,30 @@ exports.obtenerUsuario = async (req, res) => {
   }
 };
 
-exports.obtenerPacientePorNombre = async (req, res) => {
+exports.obtenerUsuarioPorNombre = async (req, res) => {
   try {
     let nombre = req.params.nombre;
     let type = req.params.type;
-    if (type === "nombre") {
-      console.log("Entrando")
+    if (type === "Paciente") {
       const usuarios = await Usuario.find({
         "usuario_persona.nombre": { $regex: nombre, $options: "i" },
         'usuario_rol.desRol':"Paciente"
       });
       res.json(usuarios);
     }
-    else{
-      res.json([]);
+    else if (type === "Terapeuta") {
+      const usuarios = await Usuario.find({
+        "usuario_persona.nombre": { $regex: nombre, $options: "i" },
+        'usuario_rol.desRol':"Terapeuta"
+      });
+      res.json(usuarios);
     }
   } catch (error) {
     console.log(error);
     res.status(500).send("Hubo un error");
   }
 };
+
 
 exports.obtenerPacientes = async (req, res) => {
   try {
@@ -129,3 +133,4 @@ exports.obtenerPacientes = async (req, res) => {
     res.status(500).send("xxHubo un error");
   }
 };
+
