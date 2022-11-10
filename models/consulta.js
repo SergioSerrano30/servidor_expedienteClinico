@@ -30,7 +30,7 @@ const ConsultaSchema = mongoose.Schema({
       type: String,
       requiere: true,
     },
-    historias_Pacientes_idHistoria_PacientePK: {
+    idHistoria: {
       type: String,
       requiere: true,
     },

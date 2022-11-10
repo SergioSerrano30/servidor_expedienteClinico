@@ -8,6 +8,6 @@ const consultaController = require('../controllers/consulta.controller');
 router.post('/', consultaController.crearConsulta);
 router.get('/', consultaController.obtenerConsultas);
 router.put('/:id', consultaController.actualizarConsulta);
-router.get('/:id', consultaController.obtenerConsulta);
+router.get('/:type/:id', consultaController.obtenerConsulta);
 
 module.exports = router;

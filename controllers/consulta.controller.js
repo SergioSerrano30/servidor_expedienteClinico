@@ -55,11 +55,25 @@ exports.actualizarConsulta = async (req,res) => {
 
 exports.obtenerConsulta= async (req, res) => {
     try {
-        let his = await Consulta.findById(req.params.id);
+      let type = req.params.type;
+      let id = req.params.id;
+      console.log(id)
+      console.log(type)
+      if(type == "Consulta"){
+        let his = await Consulta.findById(id);
         if(!his){
             res.status(404).json({msg: 'No existe la consulta '});
         }
         res.json(his)
+      }else if(type == "Historia"){
+        let his = await Consulta.find({
+          idHistoria: id
+        });
+        res.json(his);
+      }else{
+
+      }
+
     } catch (error) {
       console.log(error);
       res.status(500).send("Hubo un error en 'ObtenerConsulta'");
