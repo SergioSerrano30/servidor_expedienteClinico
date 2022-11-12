@@ -35,9 +35,10 @@ exports.actualizarHistoria = async (req, res) => {
       emeParentesco,
       emeCelular,
       alergias,
-      cirugia,
-      traumasFracturas,
-      emeCongenitas,
+      cirugias,
+      traFracturas,
+      enfCongenitas,
+      enfHereditarias,
       otros,
       observaciones,
       numConsultasTotales,
@@ -58,9 +59,10 @@ exports.actualizarHistoria = async (req, res) => {
     his.emeParentesco = emeParentesco;
     his.emeCelular = emeCelular;
     his.alergias = alergias;
-    his.cirugia = cirugia;
-    his.traumasFracturas = traumasFracturas;
-    his.emeCongenitas = emeCongenitas;
+    his.cirugias = cirugias;
+    his.traFracturas = traFracturas;
+    his.enfCongenitas = enfCongenitas;
+    his.enfHereditarias = enfHereditarias;
     his.otros = otros;
     his.observaciones = observaciones;
     his.numConsultasTotales = numConsultasTotales;
