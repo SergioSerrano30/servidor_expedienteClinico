@@ -57,8 +57,8 @@ exports.obtenerConsulta= async (req, res) => {
     try {
       let type = req.params.type;
       let id = req.params.id;
-      console.log(id)
-      console.log(type)
+      //console.log(id)
+      //console.log(type)
       if(type == "Consulta"){
         let his = await Consulta.findById(id);
         if(!his){
@@ -70,8 +70,13 @@ exports.obtenerConsulta= async (req, res) => {
           idHistoria: id
         });
         res.json(his);
+      }else if("Terapeuta"){
+        let consultas = await Consulta.find({
+          usuarios_idUsuario: id
+        });
+        res.json(consultas);
       }else{
-
+        res.json([]);
       }
 
     } catch (error) {

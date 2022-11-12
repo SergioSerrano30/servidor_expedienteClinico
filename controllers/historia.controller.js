@@ -27,8 +27,8 @@ exports.obtenerHistorias = async (req, res) => {
 exports.actualizarHistoria = async (req, res) => {
   try {
     const {
-      fechaRegistro,
-      edad,
+      problematica,
+      fecRegistro,
       peso,
       estatura,
       emeNombre,
@@ -51,8 +51,8 @@ exports.actualizarHistoria = async (req, res) => {
       res.status(404).json({ msg: "No existe la Historia" });
     }
 
-    his.fechaRegistro = fechaRegistro;
-    his.edad = edad;
+    his.problematica = problematica;
+    his.fecRegistro = fecRegistro;
     his.peso = peso;
     his.estatura = estatura;
     his.emeNombre = emeNombre;

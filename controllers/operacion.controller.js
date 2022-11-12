@@ -38,6 +38,9 @@ exports.obtenerOpePorTipo = async (req, res) => {
     console.log(operaciones)
     res.json(operaciones);
     }
+    else{
+      res.json([]);
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Hubo un error en 'obtenerOperaciones por Tipo'");
