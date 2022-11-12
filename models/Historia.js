@@ -6,15 +6,15 @@ const HistoriaSchema = mongoose.Schema({
       type: String,
       requiere: true,
     },
-    problema: {
+    problematica: {
       type: String,
       requiere: true,
     },
-    fechaRegistro: {
+    fecRegistro: {
       type: String,
       requiere: true,
     },
-    fechaNacimiento: {
+    fecNacimiento: {
       type: String,
       requiere: true,
     },
@@ -46,7 +46,7 @@ const HistoriaSchema = mongoose.Schema({
       type: String,
       requiere: true,
     },
-    traumasFracturas: {
+    traFracturas: {
       type: String,
       requiere: true,
     },

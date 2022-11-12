@@ -38,6 +38,7 @@ exports.actualizarUsuario = async (req,res) => {
         res.status(500).send("Hubo un error");
     }
 }
+
 exports.obtenerUsuario = async (req, res) => {
     try {
         let user = await Usuario.findById(req.params.id);
@@ -50,9 +51,9 @@ exports.obtenerUsuario = async (req, res) => {
       res.status(500).send("Hubo un error");
     }
   };
+
   exports.obtenerPacientes = async(req,res) => {
     try { 
-      
       const pacientes = await Usuario.find(
         {
           'usuario_rol.desRol':"Paciente"
