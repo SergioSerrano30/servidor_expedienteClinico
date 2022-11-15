@@ -83,11 +83,11 @@ exports.obtenerConsulta= async (req, res) => {
       else if("Terapeuta"){
         let consultas = await Consulta.find({
           usuarios_idUsuario: id
-        });
+        }).sort({fechaRegistro: -1});
         res.json(consultas);
       }else{
         res.json([]);
-      }
+      } 
 
     } catch (error) {
       console.log(error);
