@@ -28,7 +28,7 @@ exports.obtenerConsultas = async (req, res) => {
 exports.actualizarConsulta = async (req,res) => {
     try {
         const {
-          numConsulta,descripcion,ejerciciosCasa
+          numConsulta,descripcion,ejerciciosCasa,estatus
         } = req.body;
         
         let con = await Consulta.findById(req.params.id);
@@ -41,6 +41,7 @@ exports.actualizarConsulta = async (req,res) => {
         con.descripcion = descripcion;
         con.numConsulta = numConsulta;
         con.ejerciciosCasa=ejerciciosCasa;
+        con.estatus = estatus;
         
         con = await Consulta.findOneAndUpdate({_id: req.params.id}, con, {new:true})
         res.json(con);
@@ -63,14 +64,23 @@ exports.obtenerConsulta= async (req, res) => {
         let his = await Consulta.findById(id);
         if(!his){
             res.status(404).json({msg: 'No existe la consulta '});
-        }
+        } 
         res.json(his)
-      }else if(type == "Historia"){
+      }else if(type == "Historia_Activas"){
         let his = await Consulta.find({
-          idHistoria: id
+          idHistoria: id,
+          estatus: "A"
         });
         res.json(his);
-      }else if("Terapeuta"){
+      }
+      else if(type == "Historia_Ocultas"){
+        let his = await Consulta.find({
+          idHistoria: id,
+          estatus: "N"
+        });
+        res.json(his);
+      }
+      else if("Terapeuta"){
         let consultas = await Consulta.find({
           usuarios_idUsuario: id
         });

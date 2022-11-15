@@ -42,6 +42,7 @@ exports.actualizarHistoria = async (req, res) => {
       otros,
       observaciones,
       numConsultasTotales,
+      estatus,
     } = req.body;
 
     let his = await Historia.findById(req.params.id);
@@ -66,6 +67,7 @@ exports.actualizarHistoria = async (req, res) => {
     his.otros = otros;
     his.observaciones = observaciones;
     his.numConsultasTotales = numConsultasTotales;
+    his.estatus = estatus;
 
     his = await Historia.findOneAndUpdate({ _id: req.params.id }, his, {
       new: true,
@@ -94,15 +96,34 @@ exports.obtenerHistoriasDePaciente = async (req, res) => {
   try {
     let id = req.params.id
     let type = req.params.type
+    let nombre = req.params.nombre;
+    console.log(id)
     if(type == "Historia"){
       let his = await Historia.findById(id);
       if (!his) {
         res.status(404).json({ msg: "No existe la historia " });
       }
       res.json(his);
-    }else if(type == "Paciente"){
+    }else if(type == "Paciente_Activas"){
       let his = await Historia.find({
-        usuarios_idPaciente: id
+        usuarios_idPaciente: id,
+        estatus: "A"
+      });
+      res.json(his);
+    }
+    else if(type == "Paciente_Ocultas"){
+      let his = await Historia.find({
+        usuarios_idPaciente: id,
+        estatus: "N"
+      });
+      res.json(his);
+    }
+    else if(type == "Paciente_Activas_Nombre"){
+      let his = await Historia.find({
+        
+        usuarios_idPaciente: id,
+        estatus: "A",
+        problematica: { $regex: nombre, $options: "i" },
       });
       res.json(his);
     }else{

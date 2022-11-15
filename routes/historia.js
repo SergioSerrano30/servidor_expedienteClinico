@@ -10,7 +10,7 @@ const historiaController = require('../controllers/historia.controller');
 router.post('/', historiaController.crearHistoria);
 router.get('/', historiaController.obtenerHistorias);
 router.put('/:id', historiaController.actualizarHistoria);
-router.get('/:type/:id', historiaController.obtenerHistoriasDePaciente);
+router.get('/:type/:id/:nombre', historiaController.obtenerHistoriasDePaciente);
 
 
 
