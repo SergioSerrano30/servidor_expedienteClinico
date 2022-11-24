@@ -1,4 +1,4 @@
-//1
+//1 s
 const mongoose = require("mongoose");
 
 const ConsultaSchema = mongoose.Schema({
