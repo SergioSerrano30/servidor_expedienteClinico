@@ -1,6 +1,6 @@
 //2
 const { response } = require("express");
-const Consulta = require("../models/Consulta");
+const Consulta = require("../models/consulta");
 
 exports.crearConsulta = async (req, res) => {
   try {
