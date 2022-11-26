@@ -25,6 +25,30 @@ const PersonaSchema = mongoose.Schema({
     type: String,
     requiere: true,
   },
+  nombreTutor: {
+    type: String,
+    requiere: true,
+  },
+  apPaternoTutor: {
+    type: String,
+    requiere: true,
+  },
+  apMaternoTutor: {
+    type: String,
+    requiere: true,
+  },
+  fechaNacTutor: {
+    type: String,
+    requiere: true,
+  },
+  sexoTutor: {
+    type: String,
+    requiere: true,
+  },
+  parentesco: {
+    type: String,
+    requiere: true,
+  },
   persona_domicilio: {
     idDomicilio_PK: {
       type: Number,

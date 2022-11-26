@@ -54,6 +54,30 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
         require: true,
       },
+      nombreTutor: {
+        type: String,
+        require: true,
+      },
+      apPaternoTutor: {
+        type: String,
+        require: true,
+      },
+      apMaternoTutor: {
+        type: String,
+        require: true,
+      },
+      fechaNacTutor: {
+        type: String,
+        require: true,
+      },
+      sexoTutor: {
+        type: String,
+        require: true,
+      },
+      parentesco: {
+        type: String,
+        require: true,
+      },
       persona_domicilio:
         {
           idDomicilio_PK: {
