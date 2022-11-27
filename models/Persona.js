@@ -45,6 +45,10 @@ const PersonaSchema = mongoose.Schema({
     type: String,
     requiere: true,
   },
+  telefonoTutor: {
+    type: String,
+    requiere: true,
+  },
   parentesco: {
     type: String,
     requiere: true,

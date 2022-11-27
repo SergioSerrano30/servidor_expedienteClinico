@@ -74,6 +74,10 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
         require: true,
       },
+      telefonoTutor: {
+        type: String,
+        require: true,
+      },
       parentesco: {
         type: String,
         require: true,
