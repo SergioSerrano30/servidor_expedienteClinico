@@ -5,4 +5,7 @@
 npm-debug.log
 yarn-error.log
 
+# Variables
+variables.env
+
 
