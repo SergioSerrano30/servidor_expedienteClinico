@@ -46,7 +46,6 @@ exports.actualizarHistoria = async (req, res) => {
     } = req.body;
 
     let his = await Historia.findById(req.params.id);
-    console.log(his);
 
     if (!his) {
       res.status(404).json({ msg: "No existe la Historia" });
@@ -97,7 +96,6 @@ exports.obtenerHistoriasDePaciente = async (req, res) => {
     let id = req.params.id
     let type = req.params.type
     let nombre = req.params.nombre;
-    console.log(id)
     if(type == "Historia"){
       let his = await Historia.findById(id);
       if (!his) {

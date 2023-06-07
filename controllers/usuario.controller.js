@@ -44,7 +44,6 @@ exports.actualizarUsuario = async (req, res) => {
     } = req.body.usuario_persona.persona_domicilio;
 
     let user = await Usuario.findById(req.params.id);
-    console.log(user);
 
     if (!user) {
       res.status(404).json({ msg: "No existe el usuario" });

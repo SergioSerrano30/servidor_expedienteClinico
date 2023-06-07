@@ -32,7 +32,6 @@ exports.actualizarConsulta = async (req,res) => {
         } = req.body;
         
         let con = await Consulta.findById(req.params.id);
-        console.log(con)
 
         if(!con){
             res.status(404).json({msg: 'No existe la Consulta'});
@@ -59,8 +58,6 @@ exports.obtenerConsulta= async (req, res) => {
       let type = req.params.type;
       let id = req.params.id;
       let his = ""
-      //console.log(id)
-      //console.log(type)
       if(type == "Consulta"){
         his = await Consulta.findById(id);
         if(!his){

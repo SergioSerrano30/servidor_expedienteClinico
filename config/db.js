@@ -15,17 +15,4 @@ const conectarDB = async()=>{
         process.exit(1);
     }
 }
-// (async () => {
-//     try {
-//         const db = await mongoose.connect(config.CONNECTION_STRING, {
-//             useNewUrlParser: true,
-//             useUnifiedTopology: true,
-//             dbName: config.DATABASE
-//         });
-//         console.log('Database is connected to: ', db.connection.name);
-//     } catch (error) {
-//         console.log('Error: ', error);
-//     }
-// })();
-
 module.exports = conectarDB
